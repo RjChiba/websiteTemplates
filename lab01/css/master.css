@@ -1,25 +1,90 @@
+@charset "UTF-8";
 @import url("../modern-css-reset");
 /*
 ! A modern CSS reset | MIT License | https://github.com/Andy-set-studio/modern-css-reset
 */
 html {
-  font-family: sans-serif;
+  font-family: Lato, sans-serif;
   color: black;
-  font-weight: normal;
+  font-weight: 300;
   margin: 0 !important; }
+
+a {
+  color: black;
+  text-decoration: underlined; }
+  a:hover {
+    text-decoration: none; }
 
 /* body */
 body {
   display: grid;
-  grid-template-rows: repeat(12, 1fr); }
+  grid-template-columns: repeat(12, 1fr); }
 
 /* header */
 header {
+  grid-column: 2 / 12;
   display: block;
   height: 3rem;
   padding: 0 1rem; }
   header h1 {
     font-weight: normal;
     font-size: 1.5em; }
+
+/* aside */
+aside {
+  grid-column: 2 / 3; }
+  aside ul {
+    list-style: none;
+    margin: 2rem 0; }
+    aside ul li {
+      margin: 1rem 0 0 0;
+      padding-left: 1rem; }
+      aside ul li.current {
+        padding-left: 0; }
+      aside ul li.current:before {
+        content: "▶︎";
+        padding-right: 0.25rem; }
+
+/* main */
+main {
+  grid-column: 3 / 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1rem; }
+  main div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    padding: 1rem; }
+  main h2 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    width: 100%;
+    padding-left: 1rem;
+    border-bottom: 1px solid black; }
+  main p {
+    padding: 0 1rem; }
+
+/* news */
+#news li {
+  list-style: none; }
+#news p.title {
+  font-weight: 500; }
+#news li.publication:after,
+#news li.presentation:after {
+  margin-left: 1rem;
+  font-size: 0.75em;
+  padding: 0.25rem;
+  background-color: lightgray;
+  border-radius: 0.25rem; }
+#news li.publication:after {
+  content: "Publication"; }
+#news li.presentation:after {
+  content: "Presentation"; }
+#news .news__old {
+  margin: 0; }
 
 /*# sourceMappingURL=master.css.map */
