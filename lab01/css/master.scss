@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-@import url("../modern-css-reset");
+@import url("../modern-css-reset/reset.css");
 /*
 ! A modern CSS reset | MIT License | https://github.com/Andy-set-studio/modern-css-reset
 */
@@ -14,24 +14,30 @@ html {
 
 a {
 	color: black;
-	text-decoration: underlined;
+	text-decoration: underline;
 
 	&:hover {
 		text-decoration: none;	
 	}
 }
 
+p {
+	margin: 0.5rem 0;
+
+}
+
 /* body */
 body {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
+	margin-top: 8px;
+	min-height: 0;
 }
 
 /* header */
 header {
 	grid-column: 2 / 12;
 	display: block;
-	height: 3rem;
 	padding: 0 1rem;
 
 	h1 {
@@ -43,6 +49,14 @@ header {
 /* aside */
 aside {
 	grid-column: 2 / 3;
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 
 	ul {
 		list-style: none;
@@ -78,8 +92,12 @@ main {
 		flex-direction: column;
 		justify-content: space-between;
 		align-content: center;
-		//background-color: lightgray;
 		padding: 1rem;
+	}
+
+	img {
+		margin: 0 auto;
+		max-width: 50%;
 	}
 
 	h2 {
@@ -92,9 +110,14 @@ main {
 
 	p {
 		padding: 0 1rem;
+
+		&.caption {
+			padding: 0;
+			text-align: center;
+			font-size: 0.75em;
+		}
 	}
 }
-
 
 /* news */
 #news {
@@ -125,5 +148,37 @@ main {
 
 	.news__old {
 		margin: 0;
+	}
+}
+
+/* member */
+#member {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+
+	.member__card {
+		display: block;
+		margin: 1rem;
+		border: 1px solid gray;
+		position: relative;
+		min-height: 10rem;
+	}
+
+	.member__card__name {
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
+	.member__card__email {
+		font-size: 0.75rem;
+		font-weight: 300;
+	}
+
+	img {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 5rem;
+		height: 5rem;
 	}
 }
