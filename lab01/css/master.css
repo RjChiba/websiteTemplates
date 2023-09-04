@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("../modern-css-reset/reset.css");
+@import url("../css/reset.css");
 /*
 ! A modern CSS reset | MIT License | https://github.com/Andy-set-studio/modern-css-reset
 */
@@ -28,15 +28,47 @@ body {
 /* header */
 header {
   grid-column: 2 / 12;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
   padding: 0 1rem; }
   header h1 {
     font-weight: normal;
     font-size: 1.5em; }
 
+input {
+  display: none; }
+
+#navigationBody__icon--open,
+#navigationBody__icon--close {
+  display: none; }
+
+svg {
+  height: 5rem; }
+
+@media screen and (max-width: 900px) {
+  #navigationBody__icon--open {
+    display: inherit; }
+
+  #navigationBody__icon__oc:checked ~ aside {
+    display: inherit; }
+
+  #navigationBody__icon__oc:checked ~ header #navigationBody__icon--close {
+    display: inherit; } }
 /* aside */
 aside {
-  grid-column: 2 / 3; }
+  grid-column: 2 / 3;
+  z-index: 2; }
+  @media screen and (max-width: 900px) {
+    aside {
+      display: none;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white; } }
   aside a {
     text-decoration: none; }
     aside a:hover {
@@ -60,7 +92,11 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  padding: 1rem; }
+  padding: 1rem;
+  z-index: 1; }
+  @media screen and (max-width: 900px) {
+    main {
+      grid-column: 1 / 13; } }
   main div {
     display: flex;
     flex-direction: column;
@@ -106,6 +142,9 @@ main {
 #member {
   display: grid;
   grid-template-columns: repeat(3, 1fr); }
+  @media screen and (max-width: 960px) {
+    #member {
+      grid-template-columns: repeat(1, 1fr); } }
   #member .member__card {
     display: block;
     margin: 1rem;

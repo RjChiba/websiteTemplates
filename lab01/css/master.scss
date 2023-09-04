@@ -37,7 +37,10 @@ body {
 /* header */
 header {
 	grid-column: 2 / 12;
-	display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: center;
 	padding: 0 1rem;
 
 	h1 {
@@ -46,9 +49,48 @@ header {
 	}
 }
 
+input {
+	display: none;
+}
+
+#navigationBody__icon--open,
+#navigationBody__icon--close {
+	display: none;
+}
+
+svg {
+	height: 5rem;
+}
+
+@media screen and (max-width: 900px) {
+
+	#navigationBody__icon--open {
+		display: inherit;
+	}
+
+	#navigationBody__icon__oc:checked ~ aside {
+		display: inherit;
+	}
+
+	#navigationBody__icon__oc:checked ~ header #navigationBody__icon--close{
+		display: inherit;
+	}
+}
+
 /* aside */
 aside {
 	grid-column: 2 / 3;
+	z-index: 2;
+
+	@media screen and (max-width: 900px) {
+		display: none;
+		position: absolute;
+		top: 5rem;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: white;
+	}
 
 	a {
 		text-decoration: none;
@@ -86,6 +128,11 @@ main {
 	justify-content: space-between;
 	align-content: center;
 	padding: 1rem;
+	z-index: 1;
+
+	@media screen and (max-width: 900px) {
+		grid-column: 1 / 13;
+	}
 
 	div {
 		display: flex;
@@ -155,6 +202,10 @@ main {
 #member {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+
+	@media screen and (max-width: 960px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
 
 	.member__card {
 		display: block;
